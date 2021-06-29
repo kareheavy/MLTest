@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MercadoLibreTest</string>
+    <string name="app_name">ML Test</string>
+
+    <string name="common_search">Buscar..</string>
+
+    <string name="main_loading_title">Cargando información…</string>
+    <string name="main_loading_description">Se está buscando información relacionada.</string>
+    <string name="main_empty_title">No se encontraron resultados</string>
+    <string name="main_empty_description">Revisa que la palabra esté bien escrita.</string>
 </resources>
