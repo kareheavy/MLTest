@@ -4,7 +4,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jhonjimenez.mercadolibretest.BuildConfig
 import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
 import com.jhonjimenez.mercadolibretest.datasource.local.model.ErrorApp
-import com.jhonjimenez.mercadolibretest.datasource.remote.MLApi
+import com.jhonjimenez.mercadolibretest.datasource.remote.MlApi
 import com.jhonjimenez.mercadolibretest.presentation.utils.formatToServerDateTimeDefaults
 import dagger.Module
 import dagger.Provides
@@ -57,12 +57,16 @@ class NetModule {
     @Provides
     @Singleton
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().client(okHttpClient).baseUrl(BuildConfig.API_BASE)
+        return Retrofit
+            .Builder()
+            .client(okHttpClient)
+            .baseUrl(BuildConfig.API_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Provides
     @Singleton
-    fun providesMLApi(retrofit: Retrofit): MLApi = retrofit.create(MLApi::class.java)
+    fun providesMlApi(retrofit: Retrofit): MlApi = retrofit.create(MlApi::class.java)
+
 }

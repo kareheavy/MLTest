@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.SearchView
 import com.jhonjimenez.mercadolibretest.R
 import com.jhonjimenez.mercadolibretest.databinding.FragmentMainBinding
+import com.jhonjimenez.mercadolibretest.datasource.remote.model.SearchRequest
 import dagger.android.support.AndroidSupportInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -50,8 +51,14 @@ class MainFragment : Fragment(), SearchView.OnQueryTextListener {
         searchView.setOnQueryTextListener(this)
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        Timber.i(query)
+    override fun onQueryTextSubmit(query: String): Boolean {
+
+        viewModel.searchProduct(
+            SearchRequest(
+                query = query
+            )
+        )
+
         return false
     }
 

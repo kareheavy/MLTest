@@ -12,19 +12,11 @@ open class BaseApiCall {
         try {
             response = call.invoke()
         } catch (e: Exception) {
-            return Resource.Error(exception = e)
+            return Resource.Error(e)
         }
 
         if (!response.isSuccessful) {
-            if(response.code() == 304){
-                return Resource.Error()
-            }else{
-                val responseErrorBody = response.errorBody()
-                if (responseErrorBody != null) {
-                    return Resource.Error(exception = IOException(responseErrorBody.string()))
-                }
-                return Resource.Error(exception = IOException("Error Occurred during getting safe Api result, Custom ERROR "))
-            }
+            return Resource.Error(response.body()!!)
         }
 
         return Resource.Success(response.body()!!)

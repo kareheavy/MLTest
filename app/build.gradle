@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         debug{
-            buildConfigField("String", "API_BASE", "\"http://pruebasclaro.movilbox.net:81/claro_laravel_demo/public/api/operator/\"")
+            buildConfigField("String", "API_BASE", "\"https://api.mercadolibre.com/sites/MLC/\"")
             minifyEnabled false
             debuggable true
         }
