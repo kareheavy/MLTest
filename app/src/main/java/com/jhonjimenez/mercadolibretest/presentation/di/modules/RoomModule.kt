@@ -22,7 +22,6 @@ class RoomModule {
 
         roomDatabase = Room.databaseBuilder(app.applicationContext,
             Database::class.java, "ml_test.db")
-            .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
 

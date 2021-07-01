@@ -69,6 +69,8 @@ class MainViewModel(private val mainUseCase: MainUseCase) : ViewModel() {
             is Resource.Error<*> -> {
                 Timber.i("error call api")
                 val error = result.data as ErrorResponse
+
+                _products.value = mutableListOf()
                 message.value = error.message
             }
         }
