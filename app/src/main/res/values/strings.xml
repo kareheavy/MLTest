@@ -2,9 +2,22 @@
     <string name="app_name">ML Test</string>
 
     <string name="common_search">Buscar..</string>
+    <string name="common_new">Nuevo</string>
+    <string name="common_used">Usuado</string>
 
     <string name="main_loading_title">Cargando información…</string>
     <string name="main_loading_description">Se está buscando información relacionada.</string>
     <string name="main_empty_title">No se encontraron resultados</string>
     <string name="main_empty_description">Revisa que la palabra esté bien escrita.</string>
+    <string name="main_welcome_title">Bienvenido realiza una búsqueda</string>
+    <string name="main_welcome_description">Puedes realizar una búsqueda en la parte superior</string>
+    <string name="main_total">%1$s de %2$s resultados</string>
+
+    <string name="detail_stock_available">Stock disponible</string>
+    <string name="detail_you_must_know">Lo que tienes que saber de este producto</string>
+    <string name="detail_condition_and_sold">%1$s | %2$s Vendidos</string>
+    <string name="detail_installment">%1$sX %2$s </string>
+    <string name="detail_quantity_available">( %1$s disponibles )</string>
+    <string name="detail_attribute">- %1$s : %2$s </string>
+    <string name="detail_error">Lo sentimos ocurrio un erro inesperado</string>
 </resources>

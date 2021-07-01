@@ -1,7 +1,7 @@
 package com.jhonjimenez.mercadolibretest.datasource.remote.model
 
 data class ErrorResponse(
-    val message: String,
-    val error: String,
-    val status: Int
+    var message: String = "",
+    var error: String = "",
+    var status: Int = 0
 )

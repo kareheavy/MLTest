@@ -9,5 +9,19 @@
         android:id="@+id/mainFragment"
         android:name="com.jhonjimenez.mercadolibretest.presentation.view.main.MainFragment"
         android:label="Buscar en ML"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.jhonjimenez.mercadolibretest.presentation.view.detail.DetailFragment"
+        android:label="Detalle producto"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="uri"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

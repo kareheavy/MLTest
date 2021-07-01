@@ -9,4 +9,5 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun bindMainFragment(): MainFragment
+
 }

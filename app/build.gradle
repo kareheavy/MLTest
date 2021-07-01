@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         debug{
-            buildConfigField("String", "API_BASE", "\"https://api.mercadolibre.com/sites/MLC/\"")
+            buildConfigField("String", "API_BASE", "\"https://api.mercadolibre.com/sites/MCO/\"")
             minifyEnabled false
             debuggable true
         }

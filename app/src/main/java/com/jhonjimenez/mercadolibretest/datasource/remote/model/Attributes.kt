@@ -11,6 +11,6 @@ data class Attributes(
     @SerializedName("values") val values: List<Values>,
     @SerializedName("attribute_group_id") val attributeGroupId: String,
     @SerializedName("attribute_group_name") val attributeGroupName: String,
-    @SerializedName("source") val source: Int,
+    @SerializedName("source") val source: Long,
     @SerializedName("value_id") val valueId: String
 )

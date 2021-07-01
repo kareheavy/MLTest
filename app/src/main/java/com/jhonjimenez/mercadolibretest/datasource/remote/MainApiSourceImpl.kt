@@ -1,6 +1,5 @@
 package com.jhonjimenez.mercadolibretest.datasource.remote
 
-import com.google.gson.Gson
 import com.jhonjimenez.mercadolibretest.data.api.MainApiSource
 import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
 import com.jhonjimenez.mercadolibretest.datasource.local.model.ErrorApp
@@ -9,6 +8,7 @@ import com.jhonjimenez.mercadolibretest.datasource.remote.model.BaseResponse
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.ErrorResponse
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.SearchRequest
 import com.jhonjimenez.mercadolibretest.presentation.utils.formatToServerDateTimeDefaults
+import timber.log.Timber
 import java.util.*
 
 class MainApiSourceImpl(
@@ -25,32 +25,35 @@ class MainApiSourceImpl(
         })) {
             is Resource.Success -> response
             is Resource.Error<*> -> {
-                val error = mapBaseResponseToErrorResponse(response.data as String)
-                errorAppDao.insert(
-                    ErrorApp(
-                        message = error.message,
-                        error = error.error,
-                        dateTime = Date().formatToServerDateTimeDefaults(),
-                        endPoint = "search"
-                    )
-                )
 
-                Resource.Error(error)
+                var error: ErrorResponse
+                try {
+                    val errorCast = response.data as ErrorResponse
+                    saveErrorInLog(errorCast.message, errorCast.error, "search")
+                    error = errorCast
+                    Resource.Error(error)
+                } catch (e: Exception) {
+                    saveErrorInLog(e.message.toString(), e.stackTraceToString(), "search")
+                    error = ErrorResponse(
+                        error = e.stackTraceToString(),
+                        message = "Erro inesperado",
+                    )
+                    Resource.Error(error)
+                }
+
+
             }
         }
 
-    private fun mapBaseResponseToResultResponse(response: String): Resource<BaseResponse> {
-        val gson = Gson()
-        val jsonString: String = gson.toJson(response)
-        val baseResponse = gson.fromJson(jsonString, BaseResponse::class.java)
-
-        return Resource.Success(baseResponse)
-    }
-
-    private fun mapBaseResponseToErrorResponse(response: String): ErrorResponse {
-        val gson = Gson()
-        val jsonString: String = gson.toJson(response)
-
-        return gson.fromJson(jsonString, ErrorResponse::class.java)
+    private fun saveErrorInLog(message: String, error: String, endPoint: String) {
+        Timber.i("save error in log")
+        errorAppDao.insert(
+            ErrorApp(
+                message = message,
+                error = error,
+                dateTime = Date().formatToServerDateTimeDefaults(),
+                endPoint = endPoint
+            )
+        )
     }
 }

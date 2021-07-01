@@ -6,6 +6,6 @@ data class Values(
 
 	@SerializedName("id") val id: String,
 	@SerializedName("name") val name: String,
-	@SerializedName("struct") val struct: String?,
-	@SerializedName("source") val source: Int
+	@SerializedName("struct") val struct: Struct,
+	@SerializedName("source") val source: Long
 )
