@@ -14,5 +14,5 @@ import dagger.Provides
 class ApiSourceModule {
 
     @Provides
-    fun provideMainApiSource(api: MlApi, errorApp: ErrorAppDao): MainApiSource = MainApiSourceImpl(api, errorApp)
+    fun provideMainApiSource(api: MlApi): MainApiSource = MainApiSourceImpl(api)
 }

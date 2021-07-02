@@ -85,10 +85,10 @@ dependencies {
 
     //Test
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    androidTestImplementation 'io.mockk:mockk-android:1.11.0'
+
     //coroutines
     implementation deps.coroutines.coroutines_core
     implementation deps.coroutines.coroutines_android
@@ -100,8 +100,6 @@ dependencies {
     implementation deps.retrofit.stetho_interceptor
     //Dagger
     implementation deps.dagger.dagger_android
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter'
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter'
     kapt deps.dagger.dagger_compiler
     kapt deps.dagger.dagger_processor
     //Converter

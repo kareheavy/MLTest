@@ -11,10 +11,7 @@ import com.jhonjimenez.mercadolibretest.presentation.utils.formatToServerDateTim
 import timber.log.Timber
 import java.util.*
 
-class MainApiSourceImpl(
-    private val api: MlApi,
-    private val errorAppDao: ErrorAppDao
-) : MainApiSource, BaseApiCall() {
+class MainApiSourceImpl(private val api: MlApi) : MainApiSource, BaseApiCall() {
     override suspend fun searchProduct(searchRequest: SearchRequest): Resource<BaseResponse> =
         when (val response = safeApiCall(call = {
             api.search(
@@ -26,34 +23,17 @@ class MainApiSourceImpl(
             is Resource.Success -> response
             is Resource.Error<*> -> {
 
-                var error: ErrorResponse
                 try {
-                    val errorCast = response.data as ErrorResponse
-                    saveErrorInLog(errorCast.message, errorCast.error, "search")
-                    error = errorCast
-                    Resource.Error(error)
+                    Resource.Error(response.data as ErrorResponse)
                 } catch (e: Exception) {
-                    saveErrorInLog(e.message.toString(), e.stackTraceToString(), "search")
-                    error = ErrorResponse(
+                    val error = ErrorResponse(
                         error = e.stackTraceToString(),
                         message = "Erro inesperado",
                     )
                     Resource.Error(error)
                 }
-
-
             }
         }
 
-    private fun saveErrorInLog(message: String, error: String, endPoint: String) {
-        Timber.i("save error in log")
-        errorAppDao.insert(
-            ErrorApp(
-                message = message,
-                error = error,
-                dateTime = Date().formatToServerDateTimeDefaults(),
-                endPoint = endPoint
-            )
-        )
-    }
+
 }

@@ -32,17 +32,21 @@ class MainViewModel(private val mainUseCase: MainUseCase) : ViewModel() {
 
     fun searchProduct(searchRequest: SearchRequest, isFromScroll: Boolean) = viewModelScope.launch {
 
-        if (isFromScroll) {
-            callSearchProduct(searchRequest, isFromScroll)
-        } else {
-            if (searchRequest.query != _queryBackup) {
-                Timber.i("clean data query")
+        if (searchRequest.query != _queryBackup) {
+            Timber.i("clean data query")
+            _queryBackup = ""
+            _productsBackup.clear()
+            _pagingBackup = null
+        }else{
+            if(!isFromScroll){
+                _queryBackup = ""
                 _productsBackup.clear()
                 _pagingBackup = null
             }
-
-            callSearchProduct(searchRequest, isFromScroll)
         }
+
+        callSearchProduct(searchRequest, isFromScroll)
+
     }
 
     private suspend fun callSearchProduct(searchRequest: SearchRequest, isFromScroll: Boolean) {

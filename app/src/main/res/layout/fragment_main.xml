@@ -19,11 +19,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         app:layout_constraintTop_toBottomOf="@+id/textViewTotal"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/normal_100"
-        android:visibility="visible"
         tools:listitem="@layout/recycler_view_item" />
 
     <ProgressBar
