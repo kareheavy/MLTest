@@ -3,10 +3,8 @@ package com.jhonjimenez.mercadolibretest.presentation.di.modules
 import android.app.Application
 
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.Database
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
+import com.jhonjimenez.mercadolibretest.local.dao.Database
+import com.jhonjimenez.mercadolibretest.local.dao.ErrorAppDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

@@ -1,8 +1,8 @@
 package com.jhonjimenez.mercadolibretest.presentation.di.modules
 
 import com.jhonjimenez.mercadolibretest.data.datasource.MainDataSource
-import com.jhonjimenez.mercadolibretest.datasource.local.MainLocalDataSourceImpl
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
+import com.jhonjimenez.mercadolibretest.local.MainLocalDataSourceImpl
+import com.jhonjimenez.mercadolibretest.local.dao.ErrorAppDao
 import dagger.Module
 import dagger.Provides
 

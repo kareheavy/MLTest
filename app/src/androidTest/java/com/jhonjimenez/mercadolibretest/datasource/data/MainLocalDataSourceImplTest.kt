@@ -1,11 +1,12 @@
-package com.jhonjimenez.mercadolibretest.datasource.local
+package com.jhonjimenez.mercadolibretest.datasource.data
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.jhonjimenez.mercadolibretest.data.datasource.MainDataSource
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.Database
-import com.jhonjimenez.mercadolibretest.datasource.local.model.ErrorApp
+import com.jhonjimenez.mercadolibretest.local.MainLocalDataSourceImpl
+import com.jhonjimenez.mercadolibretest.local.dao.Database
+import com.jhonjimenez.mercadolibretest.local.model.ErrorApp
 import com.jhonjimenez.mercadolibretest.presentation.utils.formatToServerDateTimeDefaults
 import kotlinx.coroutines.runBlocking
 import org.junit.After

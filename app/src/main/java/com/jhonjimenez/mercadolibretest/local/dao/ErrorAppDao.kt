@@ -1,7 +1,7 @@
-package com.jhonjimenez.mercadolibretest.datasource.local.dao
+package com.jhonjimenez.mercadolibretest.local.dao
 
 import androidx.room.*
-import com.jhonjimenez.mercadolibretest.datasource.local.model.ErrorApp
+import com.jhonjimenez.mercadolibretest.local.model.ErrorApp
 
 @Dao
 interface ErrorAppDao {

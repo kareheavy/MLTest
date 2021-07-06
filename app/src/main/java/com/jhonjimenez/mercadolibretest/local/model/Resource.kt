@@ -1,4 +1,4 @@
-package com.jhonjimenez.mercadolibretest.datasource.local.model
+package com.jhonjimenez.mercadolibretest.local.model
 
 
 sealed class Resource<out R> {

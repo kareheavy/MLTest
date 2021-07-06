@@ -3,8 +3,8 @@ package com.jhonjimenez.mercadolibretest.presentation.di.modules
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
 import com.jhonjimenez.mercadolibretest.BuildConfig
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
-import com.jhonjimenez.mercadolibretest.datasource.local.model.ErrorApp
+import com.jhonjimenez.mercadolibretest.local.dao.ErrorAppDao
+import com.jhonjimenez.mercadolibretest.local.model.ErrorApp
 import com.jhonjimenez.mercadolibretest.datasource.remote.MlApi
 import com.jhonjimenez.mercadolibretest.presentation.utils.formatToServerDateTimeDefaults
 import dagger.Module

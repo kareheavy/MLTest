@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jhonjimenez.mercadolibretest.datasource.local.model.Resource
+import com.jhonjimenez.mercadolibretest.local.model.Resource
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.ErrorResponse
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.Paging
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.Results
@@ -26,9 +26,9 @@ class MainViewModel(private val mainUseCase: MainUseCase) : ViewModel() {
     val isLoading = SingleLiveEvent<Boolean>()
     val mainLoading = SingleLiveEvent<Boolean>()
 
-    private var _queryBackup: String = ""
-    private var _pagingBackup: Paging? = null
-    private var _productsBackup: MutableList<Results> = arrayListOf()
+    var _queryBackup: String = ""
+    var _pagingBackup: Paging? = null
+    var _productsBackup: MutableList<Results> = arrayListOf()
 
     fun searchProduct(searchRequest: SearchRequest, isFromScroll: Boolean) = viewModelScope.launch {
 
@@ -49,7 +49,7 @@ class MainViewModel(private val mainUseCase: MainUseCase) : ViewModel() {
 
     }
 
-    private suspend fun callSearchProduct(searchRequest: SearchRequest, isFromScroll: Boolean) {
+    suspend fun callSearchProduct(searchRequest: SearchRequest, isFromScroll: Boolean) {
 
         Timber.i("call api")
 

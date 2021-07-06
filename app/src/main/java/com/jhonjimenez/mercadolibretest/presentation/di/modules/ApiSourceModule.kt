@@ -2,7 +2,6 @@ package com.jhonjimenez.mercadolibretest.presentation.di.modules
 
 
 import com.jhonjimenez.mercadolibretest.data.api.MainApiSource
-import com.jhonjimenez.mercadolibretest.datasource.local.dao.ErrorAppDao
 import com.jhonjimenez.mercadolibretest.datasource.remote.MlApi
 
 

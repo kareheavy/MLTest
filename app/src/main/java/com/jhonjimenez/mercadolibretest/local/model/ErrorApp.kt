@@ -1,4 +1,4 @@
-package com.jhonjimenez.mercadolibretest.datasource.local.model
+package com.jhonjimenez.mercadolibretest.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,11 +1,10 @@
 package com.jhonjimenez.mercadolibretest.datasource.remote
 
-import com.jhonjimenez.mercadolibretest.datasource.local.model.Resource
+import com.jhonjimenez.mercadolibretest.local.model.Resource
 import com.jhonjimenez.mercadolibretest.datasource.remote.model.ErrorResponse
 import com.jhonjimenez.mercadolibretest.presentation.utils.Constants
 import retrofit2.Response
 import timber.log.Timber
-import java.io.IOException
 
 
 open class BaseApiCall {
